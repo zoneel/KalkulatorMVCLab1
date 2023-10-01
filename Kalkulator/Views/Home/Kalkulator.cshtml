@@ -1,24 +1,23 @@
+@using Kalkulator.Models.Services
 @model Kalkulator.Models.KalkulatorZapytanie
 @{
-    ViewData["Title"] = "Urodziny";
+    ViewData["Title"] = "Kalkulator";
 }
 
-<h1>Forms urodzinowy</h1>
+<h1>Kalkulator</h1>
 <form>
-    <input type="number" asp-for="Number1" />pierwsza liczba <br/>
-    <input type="number" asp-for="Number2" />druga liczba
-<br/>
+    <input type="text" asp-for="Number1" />pierwsza liczba <br/>
+    <input type="text" asp-for="Number2" />druga liczba
+    <br/>
     <select asp-for="EquationType">
-        <option value="add">Dodawanie</option>
-        <option value="sub">Odejmowanie</option>
-        <option value="mul">Mnożenie</option>
-        <option value="div">Dzielenie</option>
+        <option value="1">Dodawanie</option>
+        <option value="2">Odejmowanie</option>
+        <option value="3">Mnożenie</option>
+        <option value="4">Dzielenie</option>
     </select>
     <br/>
-    
-    <input type="submit" />
-    
-    
-</form>
+        <input type="submit" />
 
-@ViewBag.powitanie
+</form>
+<p>Wynik: @ViewBag.wynik</p>
+

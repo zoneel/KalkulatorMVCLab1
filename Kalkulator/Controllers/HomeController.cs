@@ -48,10 +48,26 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Kalkulator(KalkulatorService service, int firstNumber, int secondNumber, TypeOfEquation typeOfEquation)
+    public IActionResult Kalkulator(KalkulatorService service, KalkulatorZapytanie zapytanie)
     {
-        ViewBag.wynik = service.Calculate(firstNumber, secondNumber, typeOfEquation);
-        return View();
+        if (zapytanie.Number1 is null || zapytanie.Number2 is null)
+        {
+            ViewBag.wynik = "Niepoprawna liczba";
+            return View();
+        }
+        
+        if (zapytanie.EquationType == TypeOfEquation.Division && zapytanie.Number2 == 0)
+        {
+            ViewBag.wynik = "Nie dziel przez zero!";
+            return View();
+        }
+        
+        if (zapytanie.Number1 is not null && zapytanie.Number2 is not null)
+        {
+            ViewBag.wynik = service.Calculate((double)zapytanie.Number1, (double)zapytanie.Number2, zapytanie.EquationType);
+            return View();
+        }
+            return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
