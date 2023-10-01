@@ -4,5 +4,5 @@ namespace Kalkulator.Models.Services;
 
 public interface IKalkulatorService
 {
-    public int Calculate(int firstNumber, int secondNumber, TypeOfEquation typeOfEquation);
+    public double Calculate(double firstNumber, double secondNumber, TypeOfEquation typeOfEquation);
 }

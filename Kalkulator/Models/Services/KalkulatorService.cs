@@ -1,4 +1,5 @@
 using Kalkulator.Enums;
+using Kalkulator.Models.Exceptions;
 
 namespace Kalkulator.Models.Services;
 
@@ -12,7 +13,7 @@ public class KalkulatorService : IKalkulatorService
             TypeOfEquation.Subtraction => firstNumber - secondNumber,
             TypeOfEquation.Multiplication => firstNumber * secondNumber,
             TypeOfEquation.Division => firstNumber / secondNumber,
-            _ => throw new NotImplementedException()
+            _ => throw new NotImplementedOperationException()
         };
     }
 }
