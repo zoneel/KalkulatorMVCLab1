@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @ViewBag.powitanie @ViewBag.Imie
+    <p>to jest About</p>
+</div>
+
+@foreach (Dane d in Model)
+{
+    <marquee>@d.Name @d.Surname</marquee>
+            <br/>
+}
